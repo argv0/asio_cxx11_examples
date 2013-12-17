@@ -1,0 +1,29 @@
+package asio_sample;
+
+message request {
+
+    enum request_type {
+        GET_VALUE = 1;
+        SET_VALUE = 2;
+    }
+
+    required request_type type = 1;
+
+    message get {
+        required string key = 1;
+    }
+
+    optional get request_get = 21;
+
+    message set  {
+        required string key = 1;
+        required string value = 2;
+    }
+
+    optional set request_set = 22;
+}
+
+message response {
+    required string value = 1;
+}
+
